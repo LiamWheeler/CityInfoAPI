@@ -9,16 +9,19 @@ namespace CityInfo.API
     public class CitiesController : Controller
     {
         [Route("api/cities")]
+
         [HttpGet()]
         public JsonResult GetCities()
         {
-            return new JsonResult(new List<Object>
-            {
+            return new JsonResult(CitiesDataStore.Current.Cities);
+        }
 
-
-            new { id=1, Name="New York City"},
-            new { id=2, Name="Antwerp"}
-            });
+        [HttpGet("api/cities/{id}")]
+        public JsonResult GetCity(int id)
+        {
+            return new JsonResult(
+                CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == id)
+                );
         }
     }
 }
