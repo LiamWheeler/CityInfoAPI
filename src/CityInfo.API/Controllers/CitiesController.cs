@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace CityInfo.API
 {
+    [Route("api/cities")]
     public class CitiesController : Controller
     {
-        [Route("api/cities")]
 
+        
         [HttpGet()]
         public IActionResult GetCities()
         {
             return Ok(CitiesDataStore.Current.Cities);
         }
 
-        [HttpGet("api/cities/{id}")]
+        
+        [HttpGet("{id}")]
         public IActionResult GetCity(int id)
         {
             var cityToReturn = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == id);
