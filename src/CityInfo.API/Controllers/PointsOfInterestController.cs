@@ -52,9 +52,14 @@ namespace CityInfo.API.Controllers
                 return BadRequest();
             } 
 
+            if (pointOfInterest.Description == pointOfInterest.Name)
+            {
+                ModelState.AddModelError("Description", "The provided description shouldn't match the provided name");
+            }
+
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
 
             var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
