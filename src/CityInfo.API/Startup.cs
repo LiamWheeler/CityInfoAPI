@@ -41,6 +41,7 @@ namespace CityInfo.API
             // in the Program class takes care of that.
 
             //loggerFactory.AddConsole();
+            loggerFactory.AddDebug();
 
             if (env.IsDevelopment())
             {
