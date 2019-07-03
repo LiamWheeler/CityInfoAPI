@@ -25,8 +25,6 @@ namespace CityInfo.API.Controllers
             try
             {
 
-                throw new Exception("Exception Test");
-
                 var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
 
                 if (city == null)
