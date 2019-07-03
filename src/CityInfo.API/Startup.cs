@@ -37,7 +37,7 @@ namespace CityInfo.API
 #if DEBUG 
             services.AddTransient<IMailServices, LocalMailServices>();
 #else
-            services.AddTransient<IMailServices, CloudMailServices>();
+            services.AddTransient<IMailServices, CloudMailService>();
 #endif
 
         }
