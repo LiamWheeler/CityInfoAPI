@@ -40,7 +40,7 @@ namespace CityInfo.API.Controllers
             catch (Exception ex)
             {
                 _logger.LogCritical($"Exception while getting points of interest for city with id {cityId}.", ex);
-                throw;
+                return StatusCode(500, "There was a problem handling your request");
             }
         }
 
