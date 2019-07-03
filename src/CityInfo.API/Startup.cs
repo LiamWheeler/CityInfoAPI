@@ -34,7 +34,7 @@ namespace CityInfo.API
             //});
             //makes the query show words as they are typed (Id, Name etc) 
 
-            services.AddTransient<LocalMailService>();
+            services.AddTransient<IMailServices, LocalMailServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
